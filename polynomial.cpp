@@ -23,9 +23,14 @@ void iterative_poly(int poly1[], int p1Size, int poly2[], int p2Size)
             newArr[k] += output;
             k++;
         }
-        k = k-2;
+        k = k-(p1Size-1);
     }
     print_arr(newArr, arrSize);
+}
+
+void conquer_poly(int poly1[], int p1Size, int poly2[], int p2Size)
+{
+
 }
 
 void print_arr(int arr[], int n)
@@ -40,10 +45,10 @@ void print_arr(int arr[], int n)
 
 int main()
 {
-    int A[] = {5, 0, 10, 6};
-    int aSize = 4;
-    int B[] = {1, 2, 4};
-    int bSize = 3;
+    int A[] = {2, 5, 3, 1, 4, 3, 10};
+    int aSize = 7;
+    int B[] = {1, 2, 2, 3, 6, 5, 12};
+    int bSize = 7;
 
     iterative_poly(A, aSize, B, bSize);
 
