@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 void print_arr(int arr[], int n);
 

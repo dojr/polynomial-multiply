@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<math.h>
 
 void print_arr(int arr[], int n);
 
@@ -11,26 +10,28 @@ void print_arr(int arr[], int n);
 // The second array represents "1 + 2x^1 + 4x^2" 
 // And Output is "5 + 10x^1 + 30x^2 + 26x^3 + 52x^4 + 24x^5"
 
-void iterative_poly(int poly1[], int p1Size, int poly2[], int p2Size)
+void init_arr(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        arr[i] = 0;
+    }
+}
+
+void iterative_poly(int poly1[], int p1Size, int poly2[], int p2Size, int *P3)
 {
     int arrSize = p1Size + p2Size - 1, k = 0, output;
-    int newArr[50] = {0};
+
     for (int i = 0; i < p1Size; i++)
     {
         for (int j = 0; j < p2Size; j++)
         {
             output = poly1[i]*poly2[j];
-            newArr[k] += output;
+            P3[k] += output;
             k++;
         }
         k = k-(p1Size-1);
     }
-    print_arr(newArr, arrSize);
-}
-
-void conquer_poly(int poly1[], int p1Size, int poly2[], int p2Size)
-{
-
 }
 
 void print_arr(int arr[], int n)
@@ -50,6 +51,8 @@ int main()
     int B[] = {1, 2, 2, 3, 6, 5, 12};
     int bSize = 7;
 
-    iterative_poly(A, aSize, B, bSize);
-
+    int outArr[aSize+bSize-1];
+    init_arr(outArr, 13);
+    iterative_poly(A, aSize, B, bSize, outArr);
+    print_arr(outArr, 13);
 }
